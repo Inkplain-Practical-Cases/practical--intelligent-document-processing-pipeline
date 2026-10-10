@@ -1,0 +1,239 @@
+{
+  "crd_version": 1,
+  "name": "Document pipeline STEP-2",
+  "description": "Extract safe document text",
+  "generated_at": "2026-10-10T14:47:00Z",
+  "source": {
+    "repo": "https://github.com/Inkplain-Practical-Cases/practical--intelligent-document-processing-pipeline",
+    "revision": "step-02-extract-safe-document-text",
+    "roots": {
+      "backend": "app"
+    },
+    "stacks": [
+      "python-fastapi"
+    ]
+  },
+  "flows": [
+    {
+      "id": "main",
+      "name": "Process document",
+      "description": "Safe typed extraction",
+      "entry": "be.submit"
+    }
+  ],
+  "components": [
+    {
+      "id": "be.submit",
+      "name": "submit",
+      "kind": "function",
+      "side": "backend",
+      "layer": "door",
+      "description": "Document processing submit",
+      "flows": [
+        "main"
+      ],
+      "source": {
+        "file": "app/features/feature_pipeline/router.py",
+        "symbol": "submit",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_pipeline",
+      "component_reason": "Concrete implementation of document-processing request path",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "payload",
+          "name": "state",
+          "description": "Tenant and document pipeline state"
+        }
+      ],
+      "validations": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "handle_request",
+          "origin": "imported",
+          "description": "Call handle_request",
+          "show": true,
+          "calls": {
+            "component": "be.handle_request",
+            "type": "call",
+            "label": "transforms",
+            "evidence": "app/features/feature_pipeline/router.py: handle_request(...)"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "state",
+          "name": "result",
+          "description": "Transformed document state"
+        }
+      ],
+      "attributes": {
+        "endpoint": "POST /documents"
+      },
+      "step_change": "unchanged"
+    },
+    {
+      "id": "be.handle_request",
+      "name": "handle_request",
+      "kind": "function",
+      "side": "backend",
+      "layer": "handler",
+      "description": "Document processing handle_request",
+      "flows": [
+        "main"
+      ],
+      "source": {
+        "file": "app/features/feature_pipeline/handlers/handle_request.py",
+        "symbol": "handle_request",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_pipeline",
+      "component_reason": "Concrete implementation of document-processing request path",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "payload",
+          "name": "state",
+          "description": "Tenant and document pipeline state"
+        }
+      ],
+      "validations": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "service_validate",
+          "origin": "imported",
+          "description": "Call service_validate",
+          "show": true,
+          "calls": {
+            "component": "be.service_validate",
+            "type": "call",
+            "label": "transforms",
+            "evidence": "app/features/feature_pipeline/handlers/handle_request.py: service_validate(...)"
+          }
+        },
+        {
+          "id": "call-1",
+          "title": "service_extract_text",
+          "origin": "imported",
+          "description": "Call service_extract_text",
+          "show": true,
+          "calls": {
+            "component": "be.service_extract_text",
+            "type": "call",
+            "label": "transforms",
+            "evidence": "app/features/feature_pipeline/handlers/handle_request.py: service_extract_text(...)"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "state",
+          "name": "result",
+          "description": "Transformed document state"
+        }
+      ],
+      "attributes": {},
+      "step_change": "changed"
+    },
+    {
+      "id": "be.service_validate",
+      "name": "service_validate",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Document processing service_validate",
+      "flows": [
+        "main"
+      ],
+      "source": {
+        "file": "app/features/feature_pipeline/services/service_validate.py",
+        "symbol": "service_validate",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_pipeline",
+      "component_reason": "Concrete implementation of document-processing request path",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "payload",
+          "name": "state",
+          "description": "Tenant and document pipeline state"
+        }
+      ],
+      "validations": [],
+      "operations": [],
+      "outputs": [
+        {
+          "id": "state",
+          "name": "result",
+          "description": "Transformed document state"
+        }
+      ],
+      "attributes": {},
+      "step_change": "unchanged"
+    },
+    {
+      "id": "be.service_extract_text",
+      "name": "service_extract_text",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Document processing service_extract_text",
+      "flows": [
+        "main"
+      ],
+      "source": {
+        "file": "app/features/feature_pipeline/services/service_extract_text.py",
+        "symbol": "service_extract_text",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_pipeline",
+      "component_reason": "Concrete implementation of document-processing request path",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "payload",
+          "name": "state",
+          "description": "Tenant and document pipeline state"
+        }
+      ],
+      "validations": [],
+      "operations": [],
+      "outputs": [
+        {
+          "id": "state",
+          "name": "result",
+          "description": "Transformed document state"
+        }
+      ],
+      "attributes": {},
+      "step_change": "added"
+    }
+  ],
+  "dependencies": [],
+  "unresolved": [],
+  "step": {
+    "no": 2,
+    "of": 6,
+    "title": "Extract safe document text",
+    "branch": "step-02-extract-safe-document-text",
+    "previous": "STEP-1.crd",
+    "removed": []
+  }
+}

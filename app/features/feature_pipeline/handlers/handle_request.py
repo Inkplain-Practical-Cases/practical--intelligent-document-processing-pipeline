@@ -1,6 +1,8 @@
-# Application handler: orchestrates the single-purpose validation service.
+# Pipeline orchestration: each service accepts and returns validated state.
 from app.features.feature_pipeline.schemas.request import DocumentRequest
 from app.features.feature_pipeline.services.service_validate import service_validate
+from app.features.feature_pipeline.services.service_extract_text import service_extract_text
 def handle_request(body: DocumentRequest) -> dict:
-    # Convert the validated contract to the service boundary.
-    return service_validate(body.model_dump())
+    state = service_validate(body.model_dump())
+    state = service_extract_text(state)
+    return state
