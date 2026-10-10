@@ -1,0 +1,38 @@
+{
+  "practical_case": {
+    "id": "mRcI2Y4HmskdwEtFgg0H",
+    "slug": "intelligent-document-processing-pipeline",
+    "name": "Intelligent Document Processing Pipeline"
+  },
+  "current": "inkp",
+  "stages": {
+    "intro": {
+      "status": "done",
+      "summary": "Junior FDE profile and skill links, seven substantial introduction sections and distinct visual cover confirmed by MCP read-back.",
+      "outputs": {
+        "portal_url": "/practical-case/intelligent-document-processing-pipeline",
+        "profile": "forward-deployed-engineering",
+        "level": "junior",
+        "intro_sections": 7,
+        "cover_url": "https://firebasestorage.googleapis.com/v0/b/pds-production-test.firebasestorage.app/o/knowledge%2Flibrary%2F1791643095280_intelligent-document-processing-pipeline-cover.png?alt=media&token=08948390-490b-4373-84bd-e9a764a82a72"
+      },
+      "started_at": "2026-10-10T14:39:03.940Z",
+      "finished_at": "2026-10-10T14:39:03.940Z",
+      "updated_by": "api-key:for-chatgpt-test-2"
+    },
+    "repo": {
+      "status": "done",
+      "summary": "Six cumulative branch implementations with STEP-N.md/CRD, promoted final main with FINAL.crd, GitHub Actions pytest success on six branches and main.",
+      "started_at": "2026-10-10T14:41:09.556Z",
+      "finished_at": "2026-10-10T14:57:16.059Z",
+      "updated_by": "api-key:for-chatgpt-test-2",
+      "outputs": {
+        "repo_url": "https://github.com/Inkplain-Practical-Cases/practical--intelligent-document-processing-pipeline",
+        "steps": 6,
+        "ci_success": 7,
+        "ci_total": 7
+      }
+    }
+  },
+  "updated_at": "2026-10-10T14:57:16.059Z"
+}
