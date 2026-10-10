@@ -1,11 +1,11 @@
 {
   "crd_version": 1,
-  "name": "Document pipeline STEP-2",
-  "description": "Extract safe document text",
+  "name": "Document pipeline STEP-3",
+  "description": "Extract typed document fields",
   "generated_at": "2026-10-10T14:47:00Z",
   "source": {
     "repo": "https://github.com/Inkplain-Practical-Cases/practical--intelligent-document-processing-pipeline",
-    "revision": "step-02-extract-safe-document-text",
+    "revision": "step-03-extract-typed-document-fields",
     "roots": {
       "backend": "app"
     },
@@ -133,6 +133,19 @@
             "label": "transforms",
             "evidence": "app/features/feature_pipeline/handlers/handle_request.py: service_extract_text(...)"
           }
+        },
+        {
+          "id": "call-2",
+          "title": "service_extract_fields",
+          "origin": "imported",
+          "description": "Call service_extract_fields",
+          "show": true,
+          "calls": {
+            "component": "be.service_extract_fields",
+            "type": "call",
+            "label": "transforms",
+            "evidence": "app/features/feature_pipeline/handlers/handle_request.py: service_extract_fields(...)"
+          }
         }
       ],
       "outputs": [
@@ -223,17 +236,57 @@
         }
       ],
       "attributes": {},
+      "step_change": "unchanged"
+    },
+    {
+      "id": "be.service_extract_fields",
+      "name": "service_extract_fields",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Document processing service_extract_fields",
+      "flows": [
+        "main"
+      ],
+      "source": {
+        "file": "app/features/feature_pipeline/services/service_extract_fields.py",
+        "symbol": "service_extract_fields",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_pipeline",
+      "component_reason": "Concrete implementation of document-processing request path",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "payload",
+          "name": "state",
+          "description": "Tenant and document pipeline state"
+        }
+      ],
+      "validations": [],
+      "operations": [],
+      "outputs": [
+        {
+          "id": "state",
+          "name": "result",
+          "description": "Transformed document state"
+        }
+      ],
+      "attributes": {},
       "step_change": "added"
     }
   ],
   "dependencies": [],
   "unresolved": [],
   "step": {
-    "no": 2,
+    "no": 3,
     "of": 6,
-    "title": "Extract safe document text",
-    "branch": "step-02-extract-safe-document-text",
-    "previous": "STEP-1.crd",
+    "title": "Extract typed document fields",
+    "branch": "step-03-extract-typed-document-fields",
+    "previous": "STEP-2.crd",
     "removed": []
   }
 }
