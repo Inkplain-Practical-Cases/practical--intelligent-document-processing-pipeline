@@ -1,11 +1,11 @@
 {
   "crd_version": 1,
-  "name": "Document pipeline STEP-3",
-  "description": "Extract typed document fields",
+  "name": "Document pipeline STEP-4",
+  "description": "Validate business record",
   "generated_at": "2026-10-10T14:47:00Z",
   "source": {
     "repo": "https://github.com/Inkplain-Practical-Cases/practical--intelligent-document-processing-pipeline",
-    "revision": "step-03-extract-typed-document-fields",
+    "revision": "step-04-validate-business-record",
     "roots": {
       "backend": "app"
     },
@@ -146,6 +146,19 @@
             "label": "transforms",
             "evidence": "app/features/feature_pipeline/handlers/handle_request.py: service_extract_fields(...)"
           }
+        },
+        {
+          "id": "call-3",
+          "title": "service_validate_fields",
+          "origin": "imported",
+          "description": "Call service_validate_fields",
+          "show": true,
+          "calls": {
+            "component": "be.service_validate_fields",
+            "type": "call",
+            "label": "transforms",
+            "evidence": "app/features/feature_pipeline/handlers/handle_request.py: service_validate_fields(...)"
+          }
         }
       ],
       "outputs": [
@@ -276,17 +289,57 @@
         }
       ],
       "attributes": {},
+      "step_change": "unchanged"
+    },
+    {
+      "id": "be.service_validate_fields",
+      "name": "service_validate_fields",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Document processing service_validate_fields",
+      "flows": [
+        "main"
+      ],
+      "source": {
+        "file": "app/features/feature_pipeline/services/service_validate_fields.py",
+        "symbol": "service_validate_fields",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_pipeline",
+      "component_reason": "Concrete implementation of document-processing request path",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "payload",
+          "name": "state",
+          "description": "Tenant and document pipeline state"
+        }
+      ],
+      "validations": [],
+      "operations": [],
+      "outputs": [
+        {
+          "id": "state",
+          "name": "result",
+          "description": "Transformed document state"
+        }
+      ],
+      "attributes": {},
       "step_change": "added"
     }
   ],
   "dependencies": [],
   "unresolved": [],
   "step": {
-    "no": 3,
+    "no": 4,
     "of": 6,
-    "title": "Extract typed document fields",
-    "branch": "step-03-extract-typed-document-fields",
-    "previous": "STEP-2.crd",
+    "title": "Validate business record",
+    "branch": "step-04-validate-business-record",
+    "previous": "STEP-3.crd",
     "removed": []
   }
 }
