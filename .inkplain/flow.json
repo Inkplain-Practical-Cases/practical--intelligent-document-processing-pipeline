@@ -49,7 +49,7 @@
     },
     "content": {
       "status": "done",
-      "summary": "Final source audit: processing and audit services write response-local dictionaries, e.g. state['audit'], without a persistent store. No source-backed database schema or ERD exists.",
+      "summary": "Added SQLite document API request/outcome persistence, STEP-6/FINAL ERD and .inkp tab; Database (Entity) Relations published and read-back checked.",
       "started_at": "2026-10-10T15:03:36.831Z",
       "finished_at": "2026-10-10T15:31:35.040Z",
       "updated_by": "api-key:for-chatgpt-test-2",
@@ -60,11 +60,14 @@
         "step_items": 24,
         "structural_qa": true,
         "erd_audit_complete": true,
-        "erd_applicable_steps": [],
-        "erd_not_applicable": true,
-        "erd_lessons_created": 0
+        "erd_applicable_steps": [
+          6
+        ],
+        "erd_not_applicable": false,
+        "erd_lessons_created": 1,
+        "erd_item_title": "Database (Entity) Relations"
       }
     }
   },
-  "updated_at": "2026-10-13T13:46:11.200Z"
+  "updated_at": "2026-10-13T15:57:26.988Z"
 }
